@@ -1,12 +1,12 @@
 # Introduction
 
-> This is a module extends **React**
+> This module extends **React Js**
 
 This FancyImage React component creates an animation on image change and can be used as nice and material headline design with image.
 
 # Installation
 
-`npm install react-fancy-image` --save
+`npm install --save react-fancy-image`
 
 # Usage
 
