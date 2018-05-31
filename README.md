@@ -18,7 +18,7 @@ Use the ReactFancyImage component:
 
 `<Image img={require(imgUrl)} headlineA="" headlineB="" />`
 
-> The image is displayed 'absolute'. To embed it into your website it is recommended to use a parent `<div style={position: "relative"}>`.
+> The image is displayed 'absolute'. To embed it into your website it is recommended to use a parent `<div style={{position: "relative"}}>`.
 
 # Contact
 
