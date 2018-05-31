@@ -16,9 +16,15 @@ Add following line at the beginning of your document:
 
 Use the ReactFancyImage component:
 
-`<Image img={require(imgUrl)} headlineA="" headlineB="" />`
-
-> The image is displayed 'absolute'. To embed it into your website it is recommended to use a parent `<div style={{position: "relative"}}>`.
+```jsx
+<ReactFancyImage img={require(imgUrl)} headlineA="" headlineB="" />
+//The image is displayed 'absolute'.
+//To embed it into your website it is recommended to use a parent div
+//to be able to move and style the image. Like so:
+<div style={{position: 'relative'}}>
+  <ReactFancyImage img={require(imgUrl)} headlineA="" headlineB="" />
+</div>
+```
 
 # Contact
 
