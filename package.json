@@ -1,6 +1,6 @@
 {
     "name": "react-animated-menus",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "React component that mounts three dot button that morphs into a menu by clicking on it.",
     "main": "./lib/index.js",
     "license": "MIT",
