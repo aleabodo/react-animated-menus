@@ -16,6 +16,26 @@ class App extends Component {
     *   - width: Int in percentage
     *   - OR height: Int in percentage
     *   - color: String
+    *   - food = {
+    *       a: {
+    *         value: "Button1",
+    *         action: () => {
+    *           alert("test1")
+    *         }
+    *       },
+    *       b: {
+    *         value: "Button2",
+    *         action: () => {
+    *           alert("test2")
+    *         }
+    *       },
+    *       c: {
+    *         value: "Button3",
+    *         action: () => {
+    *           alert("test3")
+    *         }
+    *       }
+    *     }
     */
 
     this.state = {
@@ -147,7 +167,6 @@ class App extends Component {
     if(!(inputWidth ||inputHeight)) {
       console.log("Please define a height OR width!");
     }
-console.log(inputWidth)
     //Units and values seperated
     if(inputWidth !== undefined) {
       //Width
@@ -188,7 +207,6 @@ console.log(inputWidth)
       height: this.getDimensions().height
     };
 
-    console.log(style.height);
     const styleDot = {
       backgroundColor: this.getColor()
     };
@@ -214,14 +232,14 @@ console.log(inputWidth)
         </div>
 
         <div className="Menu_elements">
-          <div className="Menu_button Menu_element">
-            Button
+          <div className="Menu_button Menu_element" onClick={this.props.food.a.action}>
+            {this.props.food.a.value}
           </div>
-          <div className="Menu_button Menu_element">
-            Button
+          <div className="Menu_button Menu_element" onClick={this.props.food.b.action}>
+            {this.props.food.b.value}
           </div>
-          <div className="Menu_button Menu_element">
-            Button
+          <div className="Menu_button Menu_element" onClick={this.props.food.c.action}>
+            {this.props.food.c.value}
           </div>
         </div>
       </div>

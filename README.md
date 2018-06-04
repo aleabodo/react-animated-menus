@@ -15,16 +15,39 @@ Never ever worry about a fancy dropdown menu. This component does it for you!
 
 Component usage:
 
-`<Menu width={"20px"} color="rgb(123, 192, 222)" />`
+```jsx
+const food = {
+  a: {
+    value: "Button1",
+    action: () => {
+      alert("test1")
+    }
+  },
+  b: {
+    value: "Button2",
+    action: () => {
+      alert("test2")
+    }
+  },
+  c: {
+    value: "Button3",
+    action: () => {
+      alert("test3")
+    }
+  }
+}
 
-Replace `width` optionally width `height` but don't use both at the same time. 
-To keep the ratio between height and width one has to be given and the other one is calculated by the component.
+<Menu width={"20px"} color="rgb(123, 192, 222)" food={food} />
 
-One example with height:
+//Replace 'width' optionally width 'height' but don't use both at the same time.
+T//o keep the ratio between height and width one has to be given and the other one is calculated by the component.
 
-`<Menu height={"50px"}" />`
+//One example with height:
 
-`color` is optional. The defaul value is `rgb(255, 255, 255)` if it's not defined.
+<Menu height={"50px"}" food={food} />
+
+//'color' is optional. The defaul value is 'rgb(255, 255, 255)' if it's not defined.
+```
 
 # Contact
 
