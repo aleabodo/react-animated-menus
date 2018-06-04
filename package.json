@@ -1,7 +1,7 @@
 {
-    "name": "react-fancy-image",
-    "version": "1.0.2",
-    "description": "React image component with transitions and animations by image change",
+    "name": "react-animated-menus",
+    "version": "1.0.0",
+    "description": "React component that mounts three dot button that morphs into a menu by clicking on it.",
     "main": "./lib/index.js",
     "license": "MIT",
     "scripts": {
@@ -14,6 +14,7 @@
         "react-scripts": "1.1.4"
     },
     "devDependencies": {
+        "animejs": "^2.2.0",
         "babel-core": "^6.21.0",
         "babel-loader": "^7.1.4",
         "babel-preset-env": "^1.6.1",
