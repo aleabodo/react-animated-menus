@@ -40,7 +40,7 @@ const food = {
 <Menu width={"20px"} color="rgb(123, 192, 222)" food={food} />
 
 //Replace 'width' optionally width 'height' but don't use both at the same time.
-//o keep the ratio between height and width one has to be given and the other one is calculated by the component.
+//To keep the ratio between height and width one has to be given and the other one is calculated by the component.
 
 //One example with height:
 
