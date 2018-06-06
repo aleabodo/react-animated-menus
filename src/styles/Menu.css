@@ -67,7 +67,7 @@
 }
 .Menu_button:hover {
   background-color: rgb(227, 227, 227);
-  padding-left: 5%;
+  padding-left: 10%;
 }
 .Menu_button:active {
   transition: background-color 0.1s;

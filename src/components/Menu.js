@@ -113,7 +113,7 @@ class App extends Component {
           duration: function(targetElements, i, l) {
             return 400 + (i * 200);
           },
-          easing: 'easeOutCubic',
+          easing: 'easeInOutCubic',
           offset: '-=1700'
         });
     } else {
@@ -180,34 +180,35 @@ class App extends Component {
     const inputWidth = this.props.width;
     const inputHeight = this.props.height;
 
-    if(!(inputWidth ||inputHeight)) {
-      console.log("Please define a height OR width!");
-    }
-    //Units and values seperated
-    if(inputWidth !== undefined) {
-      //Width
-      const unitWidth = inputWidth.replace(/[\d]+/g,"");
-      const valueWidth = parseFloat(inputWidth);
+    if(!(inputWidth || inputHeight) || !isNaN(inputWidth) || isNaN(inputHeight)) {
+      console.log("Please define a height OR width correctly! Only define one of both. It has to be an integer!");
+      return {
+        width: 0,
+        height: 0
+      }
+    } else {
+      //Units and values seperated
+      if(inputWidth !== undefined) {
+        //Width
+        const valueWidth = parseInt(inputWidth);
+        //Height
+        const valueHeight = valueWidth * 2.5;
+
+        return {
+          width: String(valueWidth) + 'px',
+          height: String(valueHeight) + 'px'
+        }
+      }
+
       //Height
-      const unitHeight = unitWidth;
-      const valueHeight = valueWidth * 2.5;
+      const valueHeight = parseInt(inputHeight);
+      //Width
+      const valueWidth = valueHeight / 2.5;
 
       return {
-        width: String(valueWidth) + unitWidth,
-        height: String(valueHeight) + unitHeight
+        width: String(valueWidth) + 'px',
+        height: String(valueHeight) + 'px'
       }
-    }
-
-    //Height
-    const unitHeight = inputHeight.replace(/[\d]+/g,"");
-    const valueHeight = parseFloat(inputHeight);
-    //Width
-    const unitWidth = unitHeight;
-    const valueWidth = valueHeight / 2.5;
-
-    return {
-      width: String(valueWidth) + unitWidth,
-      height: String(valueHeight) + unitHeight
     }
   }
 
