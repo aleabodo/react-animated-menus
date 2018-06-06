@@ -51,19 +51,19 @@ class App extends Component {
 
     	if(event.target.closest('#'+id) && !open) {
         this.open = true;
-        animate();
+        this.animate();
       }
 
       if(!event.target.closest('#'+id) && open) {
         this.open = false;
-        animate();
+        this.animate();
       }
     });
   }
 
 
   animate() {
-    const id = this.state.id;
+    const id = this.id;
 
     //Targets that will be triggered
     var targetDots = document.querySelectorAll('#'+id+' .Menu_dot');
@@ -227,7 +227,7 @@ class App extends Component {
     const styleFont = {fontSize: style.width};
 
     return (
-      <div style={style} id={this.state.id} className="Menu Menu_closed">
+      <div style={style} id={this.id} className="Menu Menu_closed">
           <div className="Menu_dotBox">
             <div style={styleDot} className="Menu_dot Menu_dotA">
               <div className="Menu_button" style={styleFont} onClick={this.props.food.a.action}>
