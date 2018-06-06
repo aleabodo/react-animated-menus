@@ -38,35 +38,31 @@ class App extends Component {
     *     }
     */
 
-    this.state = {
-      id: this.getId(),
-      open: false
-    }
+    this.open = false;
+    this.id = this.getId();
   }
 
 
   componentDidMount() {
     //Event listener for click
     document.addEventListener("click", (event) => {
-      const id = this.state.id;
-      const open = this.state.open;
+      const id = this.id;
+      const open = this.open;
 
     	if(event.target.closest('#'+id) && !open) {
-        this.setState({
-          open: true
-        });
+        this.open = true;
+        animate();
       }
 
       if(!event.target.closest('#'+id) && open) {
-        this.setState({
-          open: false
-        });
+        this.open = false;
+        animate();
       }
     });
   }
 
 
-  componentDidUpdate() {
+  animate() {
     const id = this.state.id;
 
     //Targets that will be triggered
@@ -76,7 +72,7 @@ class App extends Component {
 
 
 
-    if(this.state.open) {
+    if(this.open) {
       var animation = anime.timeline();
 
       //Display buttons
