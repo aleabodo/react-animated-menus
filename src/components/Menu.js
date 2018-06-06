@@ -71,8 +71,7 @@ class App extends Component {
 
     //Targets that will be triggered
     var targetDots = document.querySelectorAll('#'+id+' .Menu_dot');
-    var targetElement = document.querySelectorAll('#'+id+' .Menu_element');
-    var targetElements = document.querySelector('#'+id+' .Menu_elements');
+    var targetButton = document.querySelectorAll('#'+id+' .Menu_button');
     var targetMenu = document.querySelector('#'+id+'.Menu');
 
 
@@ -80,8 +79,10 @@ class App extends Component {
     if(this.state.open) {
       var animation = anime.timeline();
 
-      //Display elements
-      targetElements.style.display = "block";
+      //Display buttons
+      targetButton.forEach((element) => {
+        element.style.display = "block";
+      });
 
       //Remove hover effect
       targetMenu.classList.remove("Menu_closed");
@@ -89,23 +90,31 @@ class App extends Component {
       animation
         .add({
           targets: targetDots,
-          scaleX: 9,
-          scaleY: 10,
-          borderRadius: 0,
-          duration: 1300,
-          translateY: "40%",
-          backgroundColor: "rgb(255, 255, 255)",
-          easing: 'easeOutExpo'
+          translateX: ["-44.5%","0%"],
+          translateY: function(targetElements, i, l) {
+            if(i===0) return ["-44%","0%"];
+            if(i===1) return ["-44%","79%"];
+            if(i===2) return ["-44%","157%"];
+          },
+          scaleX: [0.1,1],
+          scaleY: [0.14,1],
+          borderRadius: {
+            value: 0,
+            easing: "easeOutCubic",
+            duration: 1000
+          },
+          duration: 2000,
+          backgroundColor: "rgb(255, 255, 255)"
         })
         .add({
-          targets: targetElement,
-          scaleX: [2,1],
+          targets: targetButton,
+          scaleX: [2.5,1],
           opacity: 1,
           duration: function(targetElements, i, l) {
-            return 500 + (i * 200);
+            return 400 + (i * 200);
           },
-          easing: 'easeInOutQuart',
-          offset: '-=1100'
+          easing: 'easeOutCubic',
+          offset: '-=1700'
         });
     } else {
       animation = anime.timeline();
@@ -116,29 +125,36 @@ class App extends Component {
 
       animation
         .add({
-          targets: targetElement,
-          scaleX: [1,2],
-          opacity: 0,
+          targets: targetButton,
+          scaleX: [1,2.5],
           duration: function(targetElements, i, l) {
-            return 500 + (i * 200);
+            return 400 + (i * 200);
           },
-          easing: 'easeInOutQuart'
+          opacity: 0,
+          easing: 'easeInOutCubic'
         })
         .add({
           targets: targetDots,
-          scaleX: 1,
-          scaleY: 1,
+          translateX: ["0%","-44.5%"],
+          translateY: function(targetElements, i, l) {
+            if(i===0) return ["0%","-44%"];
+            if(i===1) return ["79%","-44%"];
+            if(i===2) return ["157%","-44%"];
+          },
+          scaleX: [1,0.1],
+          scaleY: [1,0.14],
           borderRadius: "100%",
-          duration: 1300,
-          translateY: 0,
-          backgroundColor: color,
-          easing: 'easeOutExpo',
+          duration: 1000,
+          backgroundColor: this.getColor(),
+          easing: "easeInOutCubic",
           offset: '-=500'
         });
 
         //Remove menu after animation finished
         animation.complete = function() {
-          targetElements.style.display = "none";
+          targetButton.forEach((element) => {
+            element.style.display = "none";
+          });
         };
     }
   }
@@ -211,37 +227,31 @@ class App extends Component {
       backgroundColor: this.getColor()
     };
 
+    const styleFont = {fontSize: style.width};
+
     return (
       <div style={style} id={this.state.id} className="Menu Menu_closed">
-        <div className="Menu_dots">
           <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot">
-
+            <div style={styleDot} className="Menu_dot Menu_dotA">
+              <div className="Menu_button" style={styleFont} onClick={this.props.food.a.action}>
+                {this.props.food.a.value}
+              </div>
             </div>
           </div>
           <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot">
-
+            <div style={styleDot} className="Menu_dot Menu_dotB">
+              <div className="Menu_button" style={styleFont} onClick={this.props.food.b.action}>
+                {this.props.food.b.value}
+              </div>
             </div>
           </div>
           <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot">
-
+            <div style={styleDot} className="Menu_dot Menu_dotC">
+              <div className="Menu_button" style={styleFont} onClick={this.props.food.c.action}>
+                {this.props.food.c.value}
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="Menu_elements">
-          <div className="Menu_button Menu_element" onClick={this.props.food.a.action}>
-            {this.props.food.a.value}
-          </div>
-          <div className="Menu_button Menu_element" onClick={this.props.food.b.action}>
-            {this.props.food.b.value}
-          </div>
-          <div className="Menu_button Menu_element" onClick={this.props.food.c.action}>
-            {this.props.food.c.value}
-          </div>
-        </div>
       </div>
     );
   }
