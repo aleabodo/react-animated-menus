@@ -97,9 +97,9 @@ class App extends Component {
           borderRadius: {
             value: 0,
             easing: "easeOutCubic",
-            duration: 1000
+            duration: 500
           },
-          duration: 2000,
+          duration: 1000,
           backgroundColor: "rgb(255, 255, 255)"
         })
         .add({
@@ -110,7 +110,7 @@ class App extends Component {
             return 400 + (i * 200);
           },
           easing: 'easeInOutCubic',
-          offset: '-=1700'
+          offset: '-=700'
         });
     } else {
       animation = anime.timeline();
@@ -140,7 +140,7 @@ class App extends Component {
           scaleX: [1,0.1],
           scaleY: [1,0.14],
           borderRadius: "100%",
-          duration: 1000,
+          duration: 700,
           backgroundColor: this.getColor(),
           easing: "easeInOutCubic",
           offset: '-=500'
