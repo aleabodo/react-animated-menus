@@ -75,10 +75,14 @@ class App extends Component {
     if(this.open) {
       var animation = anime.timeline();
 
-      //Display buttons
+      //Styles
       targetButton.forEach((element) => {
         element.style.display = "block";
+        element.style.zIndex = 1000;
       });
+      targetDots.forEach((element) => {
+        element.style.zIndex = 1000;
+      })
 
       //Remove hover effect
       targetMenu.classList.remove("Menu_closed");
@@ -97,9 +101,9 @@ class App extends Component {
           borderRadius: {
             value: 0,
             easing: "easeOutCubic",
-            duration: 500
+            duration: 900
           },
-          duration: 1000,
+          duration: 1200,
           backgroundColor: "rgb(255, 255, 255)"
         })
         .add({
@@ -150,7 +154,11 @@ class App extends Component {
         animation.complete = function() {
           targetButton.forEach((element) => {
             element.style.display = "none";
+            element.style.zIndex = 1;
           });
+          targetDots.forEach((element) => {
+            element.style.zIndex = 1;
+          })
         };
     }
   }

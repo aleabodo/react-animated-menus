@@ -4,6 +4,7 @@
   overflow: visible;
   transition: opacity 0.5s;
   cursor: pointer;
+  z-index: 1;
 }
 
 .Menu_closed:hover {
