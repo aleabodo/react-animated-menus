@@ -78,10 +78,9 @@ class App extends Component {
       //Styles
       targetButton.forEach((element) => {
         element.style.display = "block";
-        element.style.zIndex = 1000;
       });
-      targetDots.forEach((element) => {
-        element.style.zIndex = 1000;
+      targetMenu.forEach((element) => {
+        element.style.zIndex = 2000;
       })
 
       //Remove hover effect
@@ -156,7 +155,7 @@ class App extends Component {
             element.style.display = "none";
             element.style.zIndex = 1;
           });
-          targetDots.forEach((element) => {
+          targetMenu.forEach((element) => {
             element.style.zIndex = 1;
           })
         };
