@@ -66,9 +66,9 @@ class App extends Component {
     const id = this.id;
 
     //Targets that will be triggered
-    var targetDots = document.querySelectorAll('#'+id+' .Menu_dot');
-    var targetButton = document.querySelectorAll('#'+id+' .Menu_button');
-    var targetMenu = document.querySelector('#'+id+'.Menu');
+    var targetDots = document.querySelectorAll('#'+id+' .ram-Menu_dot');
+    var targetButton = document.querySelectorAll('#'+id+' .ram-Menu_button');
+    var targetMenu = document.querySelector('#'+id+'.ram-Menu');
 
 
 
@@ -79,12 +79,11 @@ class App extends Component {
       targetButton.forEach((element) => {
         element.style.display = "block";
       });
-      targetMenu.forEach((element) => {
-        element.style.zIndex = 2000;
-      })
+
+      targetMenu.style.zIndex = 2000;
 
       //Remove hover effect
-      targetMenu.classList.remove("Menu_closed");
+      targetMenu.classList.remove("ram-Menu_closed");
 
       animation
         .add({
@@ -102,7 +101,8 @@ class App extends Component {
             easing: "easeOutCubic",
             duration: 900
           },
-          duration: 1200,
+          duration: 400,
+          easing: "easeInOutCubic",
           backgroundColor: "rgb(255, 255, 255)"
         })
         .add({
@@ -120,7 +120,7 @@ class App extends Component {
       const color = this.getColor();
 
       //Remove hover effect
-      targetMenu.classList.add("Menu_closed");
+      targetMenu.classList.add("ram-Menu_closed");
 
       animation
         .add({
@@ -155,9 +155,9 @@ class App extends Component {
             element.style.display = "none";
             element.style.zIndex = 1;
           });
-          targetMenu.forEach((element) => {
-            element.style.zIndex = 1;
-          })
+
+          targetMenu.style.zIndex = 1;
+
         };
     }
   }
@@ -234,24 +234,24 @@ class App extends Component {
     const styleFont = {fontSize: style.width};
 
     return (
-      <div style={style} id={this.id} className="Menu Menu_closed">
-          <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot Menu_dotA">
-              <div className="Menu_button" style={styleFont} onClick={this.props.food.a.action}>
+      <div style={style} id={this.id} className="ram-Menu ram-Menu_closed">
+          <div className="ram-Menu_dotBox">
+            <div style={styleDot} className="ram-Menu_dot ram-Menu_dotA">
+              <div className="ram-Menu_button" style={styleFont} onClick={this.props.food.a.action}>
                 {this.props.food.a.value}
               </div>
             </div>
           </div>
-          <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot Menu_dotB">
-              <div className="Menu_button" style={styleFont} onClick={this.props.food.b.action}>
+          <div className="ram-Menu_dotBox">
+            <div style={styleDot} className="ram-Menu_dot ram-Menu_dotB">
+              <div className="ram-Menu_button" style={styleFont} onClick={this.props.food.b.action}>
                 {this.props.food.b.value}
               </div>
             </div>
           </div>
-          <div className="Menu_dotBox">
-            <div style={styleDot} className="Menu_dot Menu_dotC">
-              <div className="Menu_button" style={styleFont} onClick={this.props.food.c.action}>
+          <div className="ram-Menu_dotBox">
+            <div style={styleDot} className="ram-Menu_dot ram-Menu_dotC">
+              <div className="ram-Menu_button" style={styleFont} onClick={this.props.food.c.action}>
                 {this.props.food.c.value}
               </div>
             </div>
