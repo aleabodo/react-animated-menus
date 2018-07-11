@@ -99,7 +99,7 @@ class App extends Component {
           borderRadius: {
             value: 0,
             easing: "easeOutCubic",
-            duration: 900
+            duration: 400
           },
           duration: 400,
           easing: "easeInOutCubic",
@@ -110,10 +110,10 @@ class App extends Component {
           scaleX: [2.5,1],
           opacity: 1,
           duration: function(targetElements, i, l) {
-            return 400 + (i * 200);
+            return 300 + (i * 200);
           },
           easing: 'easeInOutCubic',
-          offset: '-=700'
+          offset: '-=300'
         });
     } else {
       animation = anime.timeline();
@@ -127,7 +127,7 @@ class App extends Component {
           targets: targetButton,
           scaleX: [1,2.5],
           duration: function(targetElements, i, l) {
-            return 400 + (i * 200);
+            return 300 + (i * 200);
           },
           opacity: 0,
           easing: 'easeInOutCubic'
@@ -143,7 +143,7 @@ class App extends Component {
           scaleX: [1,0.1],
           scaleY: [1,0.14],
           borderRadius: "100%",
-          duration: 700,
+          duration: 400,
           backgroundColor: this.getColor(),
           easing: "easeInOutCubic",
           offset: '-=500'
@@ -153,10 +153,10 @@ class App extends Component {
         animation.complete = function() {
           targetButton.forEach((element) => {
             element.style.display = "none";
-            element.style.zIndex = 1;
+            element.style.zIndex = 0;
           });
 
-          targetMenu.style.zIndex = 1;
+          targetMenu.style.zIndex = 0;
 
         };
     }
